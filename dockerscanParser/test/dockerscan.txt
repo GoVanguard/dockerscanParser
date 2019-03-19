@@ -1,0 +1,68 @@
+Dockscan Report
+
+-[ Medium ]-
+=Docker running with IPv4 forwarding enabled=
+Description:
+Docker daemon reports it is running daemon with IPv4 forwarding enabled.
+This is not recommended for production as it forwards network packets without rules.
+Output:
+Docker daemon reports it is running with automatic IPv4 forwarding.
+Solution:
+It is recommended to disable IPv4 forwarding by default.
+
+=Docker running without defined limits=
+Description:
+Docker daemon reports it is running daemon without defined limits.
+This is not recommended as offending containers could use up all resources.
+Output:
+Docker daemon reports it is running without swap limit.
+
+Solution:
+It is recommended to define docker limits.
+
+
+-[ Low ]-
+=Container have higher number of processess=
+Description:
+Container have more than allowable number of processes.
+This is not recommended for production as it does not provide intended isolation.
+Output:
+FILES FILES FILES FILES FILES FILES FILES FILES FILES 
+
+FILES FILES FILES FILES FILES FILES FILES FILES FILES FILES 
+
+FILES FILES FILES FILES FILES FILES 
+
+Solution:
+It is recommended to have single process inside container. If you have more than one process, it is recommended to split them in separate containers.
+
+=Docker registries are not mirrored=
+Description:
+Docker daemon reports it is running configuration without registry mirrors.
+If you set up local mirror, your docker host does not have to go directly to internet if not needed.
+Output:
+Docker daemon reports it does not have mirror registries.
+Offending registry indexes:
+docker.io
+
+
+Solution:
+It is recommended to setup mirror registry.
+
+=Container have higher number of changed files=
+Description:
+Container have high number of changed files which is not recommended practice.
+This is not recommended for production as data can be lost. It can also mean successful break in attempt.
+Output:
+FILES FILES FILES FILES FILES FILES FILES FILES FILES FILES FILES FILES FILES FILES 
+
+FILES FILES FILES FILES FILES FILES FILES FILES FILES FILES FILES FILES FILES 
+
+FILES FILES FILES FILES FILES FILES FILES 
+
+
+Solution:
+It is recommended to have minimal number of changed files inside container and do not store data inside container. It is recommended to use volumes.
+
+
+

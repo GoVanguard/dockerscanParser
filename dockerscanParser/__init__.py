@@ -64,5 +64,10 @@ class DockerscanParser:
 
 def test():
     dp = DockerscanParser()
-    results = dp.parseReport('dockerscan.txt')
-    print(results)
+    results = dp.parseReport('./dockerscanParser/test/dockerscan.txt')
+    if results:
+        testObj = results['Low']
+        print('PASS')
+
+if __name__ == "__main__":
+    test()
